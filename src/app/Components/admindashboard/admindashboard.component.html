@@ -1,0 +1,19 @@
+<div class="min-h-screen flex flex-col ">
+  <!-- Header -->
+  <header class="w-full">
+    <app-commonheader></app-commonheader>
+  </header>
+
+  <!-- Sidebar + Content -->
+  <div class="flex flex-1">
+    <aside class="w-64 bg-gray-100">
+      <app-adminsidebar></app-adminsidebar>
+    </aside>
+
+    <main class="flex-1 px-15">
+      <router-outlet>
+
+      </router-outlet>
+    </main>
+  </div>
+</div>

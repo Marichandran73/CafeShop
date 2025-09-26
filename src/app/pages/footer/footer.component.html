@@ -1,0 +1,87 @@
+<footer class="bg-neutral-900 text-neutral-100">
+  <div class="max-w-6xl mx-auto px-6 py-10 md:py-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <!-- Brand + short description -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-2">Sweet Cafe</h3>
+        <p class="text-sm text-neutral-300">
+          Fresh brews, cozy vibes — your daily caffeine fix. Order online or visit our cafe for a great experience.
+        </p>
+
+        <div class="flex items-center gap-3 mt-4">
+          <!-- Simple SVG icons (replace links) -->
+          <a aria-label="facebook" href="#" class="p-2 rounded hover:bg-neutral-800">
+            <!-- facebook svg -->
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 12.07C22 6.49 17.52 2 11.93 2S2 6.49 2 12.07c0 4.99 3.66 9.13 8.44 9.92v-7.02H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.45h-1.25c-1.23 0-1.62.77-1.62 1.56v1.88h2.77l-.44 2.9h-2.33v7.02C18.34 21.2 22 17.06 22 12.07z"/>
+            </svg>
+          </a>
+
+          <a aria-label="instagram" href="#" class="p-2 rounded hover:bg-neutral-800">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.2A3.8 3.8 0 1015.8 12 3.8 3.8 0 0012 8.2zM18.5 6.1a1.1 1.1 0 11-1.1-1.1 1.1 1.1 0 011.1 1.1z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="text-lg font-medium mb-3">Contact</h4>
+        <ul class="text-sm text-neutral-300 space-y-1">
+          <li><strong>Address:</strong> <span class="block leading-5">{{ address }}</span></li>
+          <li><strong>Phone:</strong> <a class="underline" href="tel:{{ phone }}">{{ phone }}</a></li>
+          <li><strong>Email:</strong> <a class="underline" href="mailto:{{ email }}">{{ email }}</a></li>
+        </ul>
+      </div>
+
+      <!-- Opening Hours -->
+      <div>
+        <h4 class="text-lg font-medium mb-3">Opening Hours</h4>
+        <ul class="text-sm text-neutral-300 space-y-2">
+          <li *ngFor="let h of hours" class="flex justify-between">
+            <span>{{ h.day }}</span>
+            <span class="font-medium">{{ h.time }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Newsletter / quick links -->
+      <div>
+        <h4 class="text-lg font-medium mb-3">Newsletter</h4>
+        <p class="text-sm text-neutral-300 mb-3">Get specials & updates. No spam — promise!</p>
+
+        <form class="flex gap-2" (submit)="subscribeNewsletter($event)">
+  <input
+    type="email"
+    required
+    placeholder="Your email"
+    class="flex-1 py-2 px-3 rounded-md text-neutral-900 focus:outline-none"
+    aria-label="Email for newsletter"
+  />
+  <button class="px-4 py-2 rounded-md bg-amber-400 text-neutral-900 font-semibold hover:brightness-95">
+    Subscribe
+  </button>
+</form>
+
+
+        <div class="mt-4">
+          <h5 class="text-sm font-medium text-neutral-200 mb-2">Quick Links</h5>
+          <ul class="text-sm text-neutral-300 space-y-1">
+            <li><a href="#" class="hover:underline">Menu</a></li>
+            <li><a href="#" class="hover:underline">Order Online</a></li>
+            <li><a href="#" class="hover:underline">Locations</a></li>
+            <li><a href="#" class="hover:underline">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-neutral-800 mt-8 pt-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-3">
+        <p class="text-sm text-neutral-400">© {{ currentYear }} CafeName. All rights reserved.</p>
+        <p class="text-sm text-neutral-400">Made with ❤️ • Privacy · Terms</p>
+      </div>
+    </div>
+  </div>
+</footer>

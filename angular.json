@@ -20,16 +20,14 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": [],
+           "assets": [
+             "src/favicon.ico",
+              "src/assets"
+],
+"styles": [
+  "src/styles.css"
+],
+"scripts": [],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {
@@ -97,5 +95,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "d19960d6-5592-40ab-9bc3-c452617bb25e"
   }
 }

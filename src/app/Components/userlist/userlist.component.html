@@ -1,0 +1,60 @@
+
+
+
+<div class="px-10 pt-5 ">
+    <div class="flex justify-between w-full">
+        <div>
+            <input type="text" placeholder="Search..." (input)="Searchbar($event)" class="border border-orange-300 rounded-bl-2xl
+            rounded-tl-2xl outline-none p-3">
+            <button class="bg-orange-500  hover:bg-orange-600 text-white px-10 py-1 h-13 rounded-br-2xl rounded-tr-2xl">Search</button>
+        </div>
+        <div class="">
+            <button
+            (click)="AddUser()"
+             class="bg-orange-500 text-white hover:bg-orange-600 px-6 py-1 h-13 rounded-2xl font-medium">Add User</button>
+        </div>
+    </div>
+</div>
+<!-- <router-outlet />   -->
+
+<div class="overflow-x-auto mt-20">
+  <table class="min-w-full border border-gray-200 bg-white shadow-lg rounded-lg">
+    <thead class="bg-gray-100 text-gray-700 uppercase text-sm">
+      <tr>
+        <th class="px-4 py-2 border">S.No</th>
+        <th class="px-4 py-2 border">User Name</th>
+        <th class="px-4 py-2 border">Email</th>
+        <th class="px-4 py-2 border">Role</th>
+        <th class="px-4 py-2 border text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-800">
+      <tr *ngFor="let user of (searchVar.length ? searchVar : userData); let index = index" 
+          class="hover:bg-gray-50 transition">
+        <td class="px-4 py-2 border text-center">{{ index + 1 }}</td>
+        <td class="px-4 py-2 border">{{ user.name }}</td>
+        <td class="px-4 py-2 border">{{ user.email }}</td>
+        <td class="px-4 py-2 border">{{ user.role }}</td>
+        <td class="px-4 py-2 border flex justify-center gap-2">
+          <button
+          (click)="EditFun(user._id)"
+           class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-md text-sm">
+            Edit
+          </button>
+          <button (click)="DeleteFun(user._id)" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-md text-sm">
+            Delete
+          </button>
+          <button
+          (click)="ViewFun(user._id)"
+           class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-md text-sm">
+            View
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+

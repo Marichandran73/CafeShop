@@ -1,0 +1,25 @@
+<div class="container mx-auto px-4 py-8 h-[85vh] overflow-y-auto">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div *ngFor="let product of products" class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+      
+      <!-- Product Image -->
+      <div class="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
+        <img [src]="product.image" alt="{{product.name}}" class="object-cover h-full w-full">
+      </div>
+      
+      <!-- Product Info -->
+      <div class="p-4">
+        <h3 class="text-lg font-semibold mb-2">{{product.name}}</h3>
+        <p class="text-gray-600 text-sm mb-2 truncate">{{product.description}}</p>
+        <p class="text-gray-800 font-bold mb-1">₹ {{product.price}}</p>
+        <p *ngIf="product.available" class="text-green-600 font-medium mb-2">Available</p>
+        
+        <!-- Buttons -->
+        <div class="flex gap-2 mt-3">
+          <button class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition-colors duration-200">Edit</button>
+          <button class="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg transition-colors duration-200" (click)="deleteProduct(product._id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,97 @@
+<div class="container mx-auto px-6 py-2 relative">
+  <form 
+    [formGroup]="form" 
+    (ngSubmit)="SubmitProduct()" 
+    class="bg-white rounded-2xl shadow-md p-6 max-w-lg mx-auto"
+    enctype="multipart/form-data"
+  >
+    <h1 class="text-2xl font-bold text-center mb-6 text-gray-800">Add Product</h1>
+
+    <!-- Product Name -->
+    <div class="mb-4">
+      <label for="name" class="block font-semibold mb-1 text-gray-700">Product Name:</label>
+      <input 
+        type="text" 
+        formControlName="name" 
+        id="name" 
+        class="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <p *ngIf="form.get('name')?.touched && form.get('name')?.invalid" class="text-red-500 text-sm mt-1">
+        Name is required.
+      </p>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-4">
+      <label for="description" class="block font-semibold mb-1 text-gray-700">Description:</label>
+      <input 
+        type="text" 
+        formControlName="description" 
+        id="description" 
+        class="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <p *ngIf="form.get('description')?.touched && form.get('description')?.invalid" class="text-red-500 text-sm mt-1">
+        Description is mandatory.
+      </p>
+    </div>
+
+    <!-- Price -->
+    <div class="mb-4">
+      <label for="price" class="block font-semibold mb-1 text-gray-700">Price:</label>
+      <input 
+        type="number" 
+        formControlName="price" 
+        id="price" 
+        class="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <p *ngIf="form.get('price')?.touched && form.get('price')?.invalid" class="text-red-500 text-sm mt-1">
+        Price is mandatory.
+      </p>
+    </div>
+
+    <!-- Product Image -->
+    <div class="mb-4">
+      <label for="image" class="block font-semibold mb-1 text-gray-700">Product Image:</label>
+      <input 
+        type="file" 
+        formControlName="image" 
+        (change)="onFileSelected($event)" 
+        id="image" 
+        class="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <p *ngIf="form.get('image')?.touched && form.get('image')?.invalid" class="text-red-500 text-sm mt-1">
+        Image is required.
+      </p>
+    </div>
+
+    <!-- Category -->
+    <div class="mb-4">
+      <label for="category" class="block font-semibold mb-1 text-gray-700">Category:</label>
+      <select 
+        formControlName="category" 
+        id="category" 
+        class="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      >
+        <option value="">Select Category</option>
+        <option value="Hot Coffee">Hot Coffee</option>
+        <option value="Cold Coffee">Cold Coffee</option>
+        <option value="Cup Coffee">Cup Coffee</option>
+        <option value="Beverages">Beverages</option>
+        <option value="Desserts">Desserts</option>
+      </select>
+      <p *ngIf="form.get('category')?.touched && form.get('category')?.invalid" class="text-red-500 text-sm mt-1">
+        Category is required.
+      </p>
+    </div>
+
+    <!-- Submit Button -->
+    <button 
+      type="submit" 
+      class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-md transition-colors duration-300"
+    >
+      Submit Product
+    </button>
+  </form>
+
+  <button class="mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md transition-colors duration-300 absolute top-10" (click)="getProducts()"><a routerLink="/products">Get to know all Products</a></button>
+</div>

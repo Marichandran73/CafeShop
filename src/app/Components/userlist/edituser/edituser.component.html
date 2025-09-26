@@ -1,0 +1,56 @@
+<div class="max-w-md mx-auto mt-10 bg-white shadow-md rounded-xl p-6 relative">
+  <h2 class="text-2xl font-semibold text-gray-700 mb-6">Add User</h2>
+
+  <form [formGroup]="UpdateUser" (ngSubmit)="onSubmit()" class="space-y-5">
+    <!-- Name -->
+    <div>
+      <label for="name" class="block text-sm font-medium text-gray-600 mb-1">Name</label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        autocomplete="name"
+        class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-500 focus:outline-none"
+      />
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for="email" class="block text-sm font-medium text-gray-600 mb-1">Email</label>
+      <input
+        type="email"
+        id="email"
+        autocomplete="email"
+        formControlName="email"
+        class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-500 focus:outline-none"
+      />
+    </div>
+
+   
+    <!-- Role -->
+    <div>
+      <label for="role" class="block text-sm font-medium text-gray-600 mb-1">Role</label>
+      <select
+        id="role"
+        formControlName="role"
+        autocomplete="role"
+        class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-500 focus:outline-none"
+      >
+        <option value="">-- Select Role --</option>
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+      </select>
+    </div>
+
+    <!-- Submit Button -->
+    <div>
+      <button
+        type="submit"
+        class="w-full bg-orange-600 text-white font-semibold py-2 rounded-lg hover:bg-orange-700 transition"
+      >
+        UpdateUser
+      </button>
+    </div>
+  </form>
+</div>
+<button class="p-3 mt-4 absolute top-30 right-10 m-4 bg-amber-500 rounded-2xl hover:text-white"><a routerLink="/adminDashboard/userlist">Back to Users List</a></button>
