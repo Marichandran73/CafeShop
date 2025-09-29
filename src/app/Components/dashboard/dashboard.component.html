@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<div class="container h-100vh px-40">
+<!-- <div class="container h-100vh px-40">
   <h2>Chocolate Cakes</h2>
 
   <div class="container grid grid-cols-3 gap-6">
@@ -11,7 +11,7 @@
              [src]="cake.image" 
              [alt]="cake.name">
 
-        <!-- ⭐ Star Rating -->
+      
         <span *ngFor="let star of [1,2,3,4,5]">
           <span [style.color]="star <= cake.starRate ? 'gold' : 'lightgray'">
             ★
@@ -27,6 +27,32 @@
     }
 
   </div>
+</div> -->
+<div>
+  <router-outlet> </router-outlet>
+  <h1>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, et
+    repellendus! Illum vero cum maiores, corrupti modi debitis ea saepe omnis
+    autem dolor quo perspiciatis, blanditiis accusamus labore rem quas tenetur
+    ad dolorem facere possimus excepturi ducimus quia. Nesciunt possimus enim
+    molestias et! Similique id corrupti alias delectus est! Iure voluptatum
+    possimus voluptates laborum impedit suscipit ratione eius sequi sed. Atque
+    sint quibusdam doloribus debitis. Voluptatem eaque nulla vitae esse fuga.
+    Explicabo dolores possimus laboriosam placeat saepe. Similique dolores
+    minima aperiam itaque debitis, sint consequuntur quidem aliquam ducimus
+    perferendis neque, facilis architecto vero, aliquid dolor! Obcaecati, autem
+    dicta necessitatibus neque placeat mollitia. Fugiat alias qui laboriosam
+    quas quaerat dolore! Facilis dolorem necessitatibus tenetur perspiciatis,
+    inventore maiores quisquam nesciunt architecto, sit exercitationem incidunt
+    et ex cum. Distinctio id iure minus rem aut animi tempora iusto nesciunt,
+    perspiciatis cum ipsum consequatur officia, provident a ipsa inventore est,
+    porro ex accusamus sapiente! Expedita iure distinctio, temporibus nulla
+    praesentium cumque adipisci eum atque pariatur voluptates, dolor dolore
+    soluta magni dolores quidem quam odio? Sapiente atque fugit quam, mollitia
+    ipsam temporibus hic, alias odio incidunt quos ducimus, similique sed.
+    Labore, perspiciatis! Quod debitis tenetur labore. Excepturi exercitationem
+    pariatur, sunt cum dignissimos praesentium suscipit molestias ullam.
+  </h1>
 </div>
 
 <app-footer></app-footer>
