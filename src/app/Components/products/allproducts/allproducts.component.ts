@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../service/product.service';
 import { NgForOf } from '@angular/common';
 import { CommonModule } from '@angular/common';
+// import { EmitDataService } from '../../setting/emit.service'
+import { EmitService } from '../../settings/emit.service';
 
 @Component({
   selector: 'app-all-products',
@@ -10,7 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './allproducts.component.css'
 })
 export class AllProductsComponent implements OnInit{
-  constructor(private productService :ProductService){}
+  constructor(private productService :ProductService,private emitService: EmitService){}
   products:any[]=[];
 
   ngOnInit():void{
@@ -18,6 +20,7 @@ export class AllProductsComponent implements OnInit{
       next:(data)=>{
         console.log("product card",data);
         this.products=data.products;
+        this.emitService.dataResiver(this.products);
       },
       error:(err)=>{
         console.log(err);

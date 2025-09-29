@@ -2,24 +2,21 @@
   <div class="grid grid-cols-2 gap-6 w-3/4 h-[500px] bg-white rounded-lg shadow-lg overflow-hidden">
     
     <!-- Left Image -->
-    <!-- Left Image -->
-<div class="flex justify-center items-center">
-  <img *ngIf="isLogin" src="assets/images/login.jpg" alt="Login" class="w-full h-full object-cover" />
-  <img *ngIf="!isLogin" src="assets/images/register2.jpg" alt="Register" class="w-full h-full object-cover" />
-</div>
+    <div class="flex justify-center items-center">
+      <img *ngIf="!isLogin" src="assets/images/login.jpg" alt="Login" class="w-full h-full object-cover" />
+      <img *ngIf="isLogin" src="assets/images/register2.jpg" alt="Register" class="w-full h-full object-cover" />
+    </div>
 
-<!-- E:\Entrans Tech\Angular-Folder\newVersion\cafeFrontend\src\assets\images -->
     <!-- Right Form -->
     <div class="flex flex-col justify-center p-8">
-      <h1 class="text-2xl font-bold text-center mb-6">{{isLogin? "Register Page": "Login Page"}}</h1>
+      <h1 class="text-2xl font-bold text-center mb-6">{{isLogin ? "Register Page" : "Login Page"}}</h1>
 
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-4">
         
-        <!-- Name -->
+        <!-- Name (only for Register) -->
         <div *ngIf="isLogin">
           <label for="name" class="block font-medium">Name</label>
-          <input id="name" type="text" formControlName="name"
-          autocomplete="current-name"
+          <input id="name" type="text" formControlName="name" placeholder="Enter your name"
             class="border rounded w-full p-2 focus:outline-none focus:ring focus:ring-green-400" />
           <p *ngIf="loginForm.get('name')?.touched && loginForm.get('name')?.invalid" class="text-red-500 text-sm">
             Name is required.
@@ -29,8 +26,7 @@
         <!-- Email -->
         <div>
           <label for="email" class="block font-medium">Email</label>
-          <input id="email" type="email" formControlName="email"
-          autocomplete="current-email"
+          <input id="email" type="email" formControlName="email" autocomplete="email"
             class="border rounded w-full p-2 focus:outline-none focus:ring focus:ring-green-400" />
           <p *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="text-red-500 text-sm">
             Valid email is required.
@@ -40,33 +36,25 @@
         <!-- Password -->
         <div>
           <label for="password" class="block font-medium">Password</label>
-          <input id="password" type="password" formControlName="password"
-          autocomplete="current-password"
+          <input id="password" type="password" formControlName="password" autocomplete="current-password"
             class="border rounded w-full p-2 focus:outline-none focus:ring focus:ring-green-400" />
           <p *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="text-red-500 text-sm">
             Password must be at least 6 characters.
           </p>
         </div>
-        <!-- <div *ngIf="isLogin">
-          <label for="role">Role :</label>
-          <select name="" id="">
-            <option value="">Select Role</option>
-            <option value="user">user</option>
-            <option value="manager">manager</option>
-            <option value="waiter">waiter</option>
-            <option value="chef">chef</option>
-            <option value="delivery">delivery</option>
-            <option value="cashier">cashier</option>
-          </select>
-        </div> -->
-<!-- [disabled]="loginForm.invalid" -->
+
         <!-- Submit -->
         <button type="submit" 
           class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded">
-          {{ isLogin ? "register" : "Login"}}
+          {{ isLogin ? "Register" : "Login"}}
         </button>
 
-    <p>welcome to Sweet Cafe : <span class="cursor-pointer underline text-blue-700" (click)="toggleswitch()">{{ isLogin ? "Login page" : "register page"}}</span></p>
+        <p class="text-center">
+          Welcome to Sweet Cafe : 
+          <span class="cursor-pointer underline text-blue-700" (click)="toggleForm()">
+            {{ isLogin ? "Login page" : "Register page"}}
+          </span>
+        </p>
       </form>
     </div>
   </div>

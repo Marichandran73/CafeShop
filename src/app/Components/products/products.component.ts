@@ -33,10 +33,11 @@ onFileSelected(event: any) {
 
   ngOnInit() {
     this.AddProducts();
+    
   }
 
   SubmitProduct() {
-    const product: Product = this.form.value;
+    const product: Product =this.form.value;
 
     this.productService.addProduct(product, this.selectedFile).subscribe({   
       next: (data:Product) => {

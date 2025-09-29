@@ -16,7 +16,7 @@ export class AuthService {
 
   private baseUrl='http://localhost:5001/api'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http:HttpClient) { }
 
   registerUser(user:any):Observable<any>{
     return this.http.post(`${this.baseUrl}/auth/register`,user)
