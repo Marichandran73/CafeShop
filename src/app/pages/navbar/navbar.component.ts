@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -13,7 +14,12 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   isMenuOpen = false; 
   isDropdownOpen = false; 
-  localStore = false; 
+  localStore = false;
+
+  data:any[]=[];
+
+  
+
 
   constructor(private router: Router) {}
 
@@ -26,7 +32,6 @@ export class NavbarComponent implements OnInit {
   }
 
   switchLogin() {
-    alert("Switching to login page.");
     if (!this.localStore) {
       this.router.navigate(['/login']);
     } else {
@@ -43,4 +48,7 @@ export class NavbarComponent implements OnInit {
       this.localStore = !!localStorage.getItem('token');
     }
   }
+
+
+
 }

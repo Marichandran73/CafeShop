@@ -72,12 +72,12 @@
         id="category" 
         class="w-full p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
       >
-        <option value="">Select Category</option>
+        <option value="" hidden >Select Category</option>
         <option value="Hot Coffee">Hot Coffee</option>
         <option value="Cold Coffee">Cold Coffee</option>
         <option value="Cup Coffee">Cup Coffee</option>
         <option value="Beverages">Beverages</option>
-        <option value="Desserts">Desserts</option>
+        <option value="Snacks">Snacks</option>
       </select>
       <p *ngIf="form.get('category')?.touched && form.get('category')?.invalid" class="text-red-500 text-sm mt-1">
         Category is required.

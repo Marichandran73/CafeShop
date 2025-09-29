@@ -34,7 +34,7 @@ export class ProductService {
   formData.append('available', 'true'); // or product.available if you add field
 
   if (file) {
-    formData.append('image', file);   // multer will catch this
+    formData.append('image', file);
   } else {
     formData.append('image', product.image);
   }
